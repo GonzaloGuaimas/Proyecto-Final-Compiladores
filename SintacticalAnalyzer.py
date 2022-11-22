@@ -1,20 +1,8 @@
 from ply import yacc
 from LexycalAnalyzer import lexycalAnalyzer, tokens, reserved
+from callbacks import *
+from translator import translate
 
-def t_NOMBRE_VAR(t):
-  r'[a-zA-Z][a-zA-Z0-9_]+'
-  t.type = reserved.get(t.value,'NOMBRE_VAR') # Check for reserved words
-  return t
-
-def t_error(t):
-  print("Se encontró un error en %s" % repr(t.value[0]))
-  t.lexer.skip(1)
-  
-def t_newline(t):
-  r'\n'
-  t.lexer.lineno+=1
-
-#-------------------------------------------------------------------------------------------------
 def p_S(p):
   '''S : PROG_BEGIN LIBS CUERPO PROG_END'''
   pass
