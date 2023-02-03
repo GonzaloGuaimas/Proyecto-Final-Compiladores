@@ -12,7 +12,6 @@ try:
       tok = lexycalAnalyzer.token()
       if not tok: break
       print('(',tok.type, ',',tok.value, ',',tok.lineno,')')
-    print("Analsis Léxico Correcto")
 
     sintacticalAnalyzer.parse(data)
     print("Analsis Semántico correcto")
