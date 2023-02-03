@@ -33,7 +33,21 @@ reserved = {
   'STOP' : 'STOP',
   }
 #Tokens
-tokens = ['PUNTO','PICO_OPEN','PICO_CLOSE','PARENT_OPEN','PARENT_CLOSE','COMA','VALOR_ENTERO','VALOR_TEXTO','DECIMAL','LOGICO','DPUNTOS','ASIGNAR','OPERADOR','NOMBRE_VAR','EXTENSION'] + list(reserved.values())
+tokens = ['PUNTO',
+          'PICO_OPEN',
+          'PICO_CLOSE',
+          'PARENT_OPEN',
+          'PARENT_CLOSE',
+          'COMA',
+          'VALOR_ENTERO',
+          'VALOR_TEXTO',
+          'DECIMAL',
+          'LOGICO',
+          'DPUNTOS',
+          'ASIGNAR',
+          'OPERADOR',
+          'NOMBRE_VAR',
+          'EXTENSION'] + list(reserved.values())
 
 #Reg Expr.
 t_PUNTO = r'\.'

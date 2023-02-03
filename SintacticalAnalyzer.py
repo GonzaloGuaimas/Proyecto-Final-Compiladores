@@ -28,16 +28,11 @@ def p_SETUP(p):
     | DEF_PIN PICO_OPEN TP_OUT DPUNTOS NOMBRE_VAR PICO_CLOSE
     | DEF_PIN PICO_OPEN TP_INP DPUNTOS TD_ENTERO PICO_CLOSE
     | DEF_PIN PICO_OPEN TP_INP DPUNTOS NOMBRE_VAR PICO_CLOSE'''
-  print(list(p))
   is_first_pin = True if p_SETUP.counter <= 0 else False
   p_SETUP.counter += 1
   translate(p, cb_p_pin, is_first_pin=is_first_pin,is_pin=True)
   pass
 p_SETUP.counter = 0
-def p_TIPO_PIN(p): #se puede borrar
-  '''TIPO_PIN : TP_OUT 
-    | TP_INP'''
-  pass
 
 #def setup-------------------------------------------------------------
 def p_LOOP(p):
@@ -69,19 +64,12 @@ def p_VARIABLE(p):
     | TD_LOGICO DPUNTOS NOMBRE_VAR'''
   translate(p,cb_p_variable)
   pass
-def p_TIPO(p): # podemos borrar
+def p_TIPO(p):
   '''TIPO : TD_ENTERO
     | TD_TEXTO
     | TD_DECIMAL
     | TD_LOGICO'''
   pass
-#asignaciones-----------------------------------------------------------
-# def p_ASIGNACIONES(p):
-#   '''ASIGNACIONES : NOMBRE_VAR ASIGNAR ASIGN_LDERECHO'''
-#   print('ASIGNACIONE')
-#   print(list(p))
-#   translate(p,cb_p_asignacion)
-#   pass
 def p_ASIGNACIONES(p):
   '''ASIGNACIONES : NOMBRE_VAR ASIGNAR NOMBRE_VAR
     | NOMBRE_VAR ASIGNAR VALOR_ENTERO
@@ -91,13 +79,6 @@ def p_ASIGNACIONES(p):
   translate(p,cb_p_asignacion)
   pass
 
-def p_ASIGN_LDERECHO(p): #se puede borrar
-  '''ASIGN_LDERECHO : NOMBRE_VAR 
-    | VALOR_ENTERO
-    | VALOR_TEXTO
-    | DECIMAL
-    | LOGICO'''
-  pass
 #Funciones--------------------------------------------------------------
 def p_FUNCIONES(p):
   '''FUNCIONES : DEF_FUN NOMBRE_VAR PICO_OPEN ARGUMENTOS PICO_CLOSE DPUNTOS CUERPO RETORNO'''
@@ -125,10 +106,7 @@ def p_LIBS(p):
     | ADD_LIB_EXT PICO_OPEN NOMBRE_VAR EXTENSION PICO_CLOSE COMA LIBS'''
   translate(p,cb_p_librerias)
   pass
-def p_LIBRERIA(p): #podemos borrar
-  '''LIBRERIA : NOMBRE_VAR EXTENSION 
-    | NOMBRE_VAR EXTENSION COMA LIBRERIA'''
-  pass
+
 def p_empty(p):
   '''empty : '''
   pass
