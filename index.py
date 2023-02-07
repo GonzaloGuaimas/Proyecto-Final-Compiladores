@@ -14,11 +14,11 @@ try:
       print('(',tok.type, ',',tok.value, ',',tok.lineno,')')
 
     sintacticalAnalyzer.parse(data)
-    print("Analsis Semántico correcto")
+    print("Analsis Sintáctico Correcto")
     print("Código Objeto Generado: objeto.ino")
   except Exception as e:
     print(e)
-    print("Analisis Incorrecto")
+    print("Analisis Sintáctico Incorrecto")
     
 except IndexError:
   print("Error reading file")
