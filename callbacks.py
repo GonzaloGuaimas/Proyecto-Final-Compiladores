@@ -5,7 +5,17 @@ def cb_p_librerias(p):
 
 def cb_p_variable(p):
   list_p = list(p)
-  result = "".join([list_p[1]]+[" "]+[list_p[3]]+[";"]+["\n"])
+  valor = ''
+  if (list_p[1] == 'entero'):
+    valor = 'int'
+  elif (list_p[1] == 'texto'):
+    valor = 'String'
+  elif (list_p[1] == 'decimal'):
+    valor = 'decimal'
+  elif (list_p[1] == 'lógico'):
+    valor = 'bool'
+
+  result = "".join([valor]+[" "]+[list_p[3]]+[";"]+["\n"])
   return result
 
 def cb_p_asignacion(p):
@@ -34,12 +44,30 @@ def cb_p_comparacion(p):
 
 def cb_p_pin(p):
    list_p = list(p)
-   result = "".join(["pinMode("]+[list_p[5]]+[" , "]+[list_p[3]]+[" );"]+["\n"])
+   valor = ''
+   if (list_p[3] == 'OUT'):
+     valor = 'OUTPUT'
+   elif (list_p[3] == 'INP'):
+     valor = 'INPUT'
+   result = "".join(["pinMode("]+[list_p[5]]+[" , "]+[valor]+[" );"]+["\n"])
    return result
 
 def cb_p_reservadas(p):
   list_p = list(p)
-  return "".join([list_p[1]]+["()"]+[";"]+["\n"])
+  valor = ''
+  if (list_p[1] == 'FOWARD'):
+    valor = 'avanzar'
+  elif (list_p[1] == 'BACKWARD'):
+    valor = 'retroceder'
+  elif (list_p[1] == 'LEFT'):
+    valor = 'giro_izquierda'
+  elif (list_p[1] == 'RIGHT'):
+    valor = 'giro_derecha'
+  elif (list_p[1] == 'WAIT'):
+    valor = 'esperar'
+  elif (list_p[1] == 'STOP'):
+    valor = 'parar'
+  return "".join([valor]+["()"]+[";"]+["\n"])
 
 
 if __name__ == "__main__":

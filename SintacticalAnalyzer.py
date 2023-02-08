@@ -103,7 +103,7 @@ def p_CONDICION(p):
 #Producciones Librerías------------------------------------------------
 def p_LIBS(p):
   '''LIBS : ADD_LIB_EXT PICO_OPEN NOMBRE_VAR EXTENSION PICO_CLOSE PUNTO
-    | ADD_LIB_EXT PICO_OPEN NOMBRE_VAR EXTENSION PICO_CLOSE COMA LIBS'''
+    | ADD_LIB_EXT PICO_OPEN NOMBRE_VAR EXTENSION COMA NOMBRE_VAR EXTENSION PICO_CLOSE PUNTO''' #dos librerías
   translate(p,cb_p_librerias)
   pass
 
